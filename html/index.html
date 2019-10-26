@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>SCUT_CS 18th Sport Meet</title>
+    <link rel="icon" href="../image/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- <code class="language-javascript">  </code>   -->
+</head>
+
+<body>
+    <!-- begin 容器 -->
+    <div class="container">
+        <!-- begin 头部 -->
+        <nav>
+        </nav>
+        <!-- end 头部 -->
+
+        <!-- begin 主内容 -->
+        <div class="gallery">
+            <img src="../image/sport.jpg" alt="logo" class="logo">
+        </div>
+        <div class="main">
+            <ul>
+                <li>
+                    <button class="layui-btn layui-btn-radius layui-btn-primary index-btn" onclick="InitStudentLayer()">学生查询</button>
+                </li>
+                <li>
+                    <button class="layui-btn layui-btn-radius layui-btn-primary index-btn" onclick="InitClassLayer()">班级查询</button>
+                </li>
+                <li>
+                    <button class="layui-btn layui-btn-radius layui-btn-primary index-btn" onclick="InitCompetitionLayer()">项目查询</button>
+                </li>
+             <!--    <li>
+                    <button class="layui-btn layui-btn-radius layui-btn-primary index-btn" onclick="">秩序查询</button>
+                </li> -->
+            </ul>
+        </div>
+        <!-- end 主内容 -->
+
+        <!-- 调整底部 -->
+        <div class="push"></div>
+    </div>
+    <!-- end 容器 -->
+
+    <!-- begin 弹出层 -->
+    <div class="layer-content" id="studentLayer" style="display: none;">
+        <div class="layer-search">
+            <input type="text" placeholder="请输入姓名或学号" class="layui-input search-student-input" id="studentInput"
+                onfocus="OnfocusLayerInput(this)" onblur="OnBlurLayerInput(this)">
+            <button type="button" class="layui-btn layui-btn-radius layui-btn-primary search-btn" onclick="SearchStudent()"></button>
+        </div>
+        <div class="layer-main">
+            <table class="layui-table">
+                <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>成绩</th>
+                        <th>排名</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="layer-content" id="classLayer" style="display: none;">
+        <div class="layui-form" id="searchClassForm" lay-filter="searchClassForm">
+            <div class="selectSection">
+                <select name="year" lay-verify="required" id="yearSelect" lay-filter="yearSelect">
+                    <option value="">请选择一个年级</option>
+                    <option value="18">18级</option>
+                    <option value="17">17级</option>
+                    <option value="16">16级</option>
+                </select>
+            </div>
+
+
+            <div class="selectSection">
+                <select name="type" lay-verify="required" id="classSelect" lay-filter="classSelect">
+                    <option value="">请选择一个班级</option>
+                </select>
+            </div>
+        </div>
+        <div class="layer-main">
+            <table class="layui-table">
+                <thead>
+                    <tr>
+                        <th width="50">姓名</th>
+                        <th>项目</th>
+                        <th>成绩</th>
+                        <th>排名</th>
+                    </tr>
+                </thead>
+                <tbody id="stuTableBody">
+                </tbody>
+            </table>
+        </div>
+        <div class="layer-main">
+            <table class="layui-table">
+                <thead>
+                    <tr>
+                        <th width="90">班级</th>
+                        <th width="90">成绩</th>
+                        <th width="90">排名</th>
+                    </tr>
+                </thead>
+                <tbody id="clsTableBody">
+                </tbody>
+            </table>
+        </div>
+        <div class="layer-main">
+            <table class="layui-table">
+                <thead>
+                    <tr>
+                        <th width="67">班级</th>
+                        <th width="67">成绩</th>
+                        <th width="67">排名</th>
+                        <th width="300">细节</th>
+                    </tr>
+                </thead>
+                <tbody id="cmpTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="layer-content" id="competitonLayer" style="display: none;">
+        <div class="layui-form" id="searchTypeForm" lay-filter="searchTypeForm">
+            <div class="selectSection">
+                <select name="type" lay-verify="required" id="typeSelect" , lay-filter="typeSelect">
+                    <option value="">请选择一个类别</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                    <option value="3">班级</option>
+                    <option value="4">评比</option>
+                </select>
+            </div>
+            <div class="selectSection">
+                <select name="comp" lay-verify="required" id="compSelect" lay-filter="compSelect">
+                    <option value="">请选择一个项目</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layer-main">
+            <table class="layui-table" id="dynatictable" lay-filter="dynatictable" id="dynatictable" lay-filter="dynatictable">
+                <thead>
+                    <tr id='tableChange'>
+                        <!-- <th>项目</th>
+                        <th>成绩</th>
+                        <th>排名</th> -->
+                    </tr>
+                </thead>
+                <tbody id="compTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- end 弹出层 -->
+
+    <!-- begin 底部 -->
+    <div class="footer-description">
+        <img src="../image/text.jpg" alt="底部文字" class="footer-text">
+    </div>
+    <footer>
+    </footer>
+    <!-- end 底部 -->
+    <script src="../js/jQuery-v3.2.1.js"></script>
+    <script src="../layui/layui.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/json2.js"></script>
+    <script src="../js/loadchoice.js"></script>
+</body>
+
+</html>

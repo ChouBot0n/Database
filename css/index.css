@@ -1,0 +1,100 @@
+.index-btn {
+    margin-top: 30px;
+    width: 250px;
+    height: 45px;
+    font-size: 22px;
+    color: #000000;
+}
+
+.main {
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.layui-input-block {
+    margin: 0;
+}
+
+body .search-layer {
+    /*border-radius: 30px;*/
+}
+
+.layer-content {
+    position: relative;
+}
+
+.layer-search {
+    position: relative;
+    margin-top: 30px;
+}
+
+
+.layer-main {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.search-btn {
+    float: left;
+    border-radius: 20px;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 1px 1px 15px #ddd;
+    overflow: hidden;
+    background-image: url(../image/find.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: 60% 60%;
+    background-size: 60% 60%;
+}
+
+.select-btn {
+    float: left;
+    border-radius: 20px;
+    margin-left: 45%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 1px 1px 15px #ddd;
+    overflow: hidden;
+    background-image: url(../image/find.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: 60% 60%;
+    background-size: 60% 60%;
+}
+
+
+.search-student-input {
+    float: left;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-left: 14px;
+    width: 225px;
+    height: 40px;
+    font-size: 20px;
+    box-shadow: 1px 1px 15px #ddd;
+}
+
+.selectSection {
+    float: left;
+    border-radius: 20px;
+    margin-left: 25px;
+    margin-top: 15px;
+    width: 250px;
+    height: 38px;
+    font-size: 20px;
+    box-shadow: 1px 1px 15px #ddd;
+}
+
+.layui-table th, .layui-table tr {
+    text-align: center;
+}
